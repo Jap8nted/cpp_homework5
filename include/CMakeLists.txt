@@ -1,0 +1,4 @@
+add_library(mat_serialization serialize.hpp convert_dataset.hpp homework_5.h)
+set_target_properties(mat_serialization PROPERTIES LINKER_LANGUAGE CXX)
+
+target_include_directories(mat_serialization PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
