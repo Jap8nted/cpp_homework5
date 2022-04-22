@@ -60,7 +60,7 @@ std::string getImageType(int number) {
  * @return int
  */
 
-int main() {
+int test_function() {
     float value = 0.343f;
     std::string filename = "test.bin";
     std::ofstream fout(filename, std::ios_base::binary);
@@ -103,4 +103,16 @@ int main() {
 
     std::filesystem::path bin_path("/home/stefania/projects/homework_5/data/freiburg/bin/");
     ipb::serialization::sifts::LoadDataset(bin_path);
+    return 0;
+}
+
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        std::cout << "Pass a valid path, just one attribute is required" << std::endl;
+        return 0;
+    }
+    std::string data_path(argv[1]);
+    std::filesystem::path images_path(data_path);
+    ipb::serialization::sifts::ConvertDataset(images_path);
+    return 0;
 }
