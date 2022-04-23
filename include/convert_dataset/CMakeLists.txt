@@ -1,0 +1,4 @@
+add_library(convert_dataset convert_dataset.hpp convert_dataset.cpp)
+target_link_libraries(convert_dataset sifts_internal serialize)
+
+target_include_directories(convert_dataset PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

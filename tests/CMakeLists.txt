@@ -4,7 +4,7 @@ include(CTest)
 include(Catch)
 
 find_package(OpenCV 4 REQUIRED)
-add_library(sifts_internal SHARED sifts_internal.cpp)
+add_library(sifts_internal SHARED sifts_internal.cpp sifts_internal.hpp)
 target_link_libraries(sifts_internal ${OpenCV_LIBS})
 
 set(TEST_BINARY ${PROJECT_NAME}_test)
@@ -13,9 +13,10 @@ add_executable(${TEST_BINARY}
                test_convert_dataset.cpp
                test_main.cpp)
 
-target_link_libraries(${TEST_BINARY}
-                      convert_dataset
-                      mat_serialization
+target_link_libraries(${TEST_BINARY}    
+                    serialize                    
+                    convert_dataset                        
+                    homework_5
                       sifts_internal
                       Catch2::Catch2)
 
